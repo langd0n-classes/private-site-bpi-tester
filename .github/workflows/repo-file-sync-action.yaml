@@ -3,20 +3,16 @@ name: Sync Repository Files on Push
 on:
   push:
     branches:
-      - main
-    paths-ignore:
-      - '.github/workflows/**'  # Optional: Ignore changes to workflow files
-
+      - master
+  workflow_dispatch:
 jobs:
-  repo-sync:
+  sync:
     runs-on: ubuntu-latest
-    if: github.repository == 'langd0n-classes/private-site-bpi-tester'
     steps:
-    - name: Repo Sync
-      uses: BetaHuhn/repo-file-sync-action@v1
-      with:
-        SOURCE_REPO: "langd0n-classes/private-site-bpi-tester"
-        SOURCE_BRANCH: "main"
-        DESTINATION_REPO: "langd0n-classes/public-site-bpi-tester"
-        DESTINATION_BRANCH: "main"
-        GH_INSTALLATION_TOKEN: ${{ secrets.GH_INSTALLATION_TOKEN }}
+      - name: Checkout Repository
+        uses: actions/checkout@master
+      - name: Run Repo File Sync Action
+        uses: BetaHuhn/repo-file-sync-action@v1
+        with:
+          CONFIG_PATH: .github/sync.yml
+          GH_INSTALLATION_TOKEN: ${{ secrets.GH_INSTALLATION_TOKEN }}
