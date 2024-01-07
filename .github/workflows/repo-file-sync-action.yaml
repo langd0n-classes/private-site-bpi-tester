@@ -16,4 +16,3 @@ jobs:
         with:
           CONFIG_PATH: .github/sync.yml
           GH_PAT: ${{ secrets.GH_PAT }}
-          #GH_INSTALLATION_TOKEN: ${{ secrets.GH_INSTALLATION_TOKEN }}
