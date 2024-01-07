@@ -11,8 +11,4 @@ jobs:
     - name: Repo Sync
       uses: BetaHuhn/repo-file-sync-action@v1
       with:
-        SOURCE_REPO: "langd0n-classes/private-site-bpi-tester"
-        SOURCE_BRANCH: "main"
-        DESTINATION_REPO: "langd0n-classes/public-site-bpi-tester"
-        DESTINATION_BRANCH: "main"
         GH_INSTALLATION_TOKEN: ${{ secrets.GH_INSTALLATION_TOKEN }}
