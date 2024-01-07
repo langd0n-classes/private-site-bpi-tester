@@ -3,7 +3,7 @@ name: Sync Repository Files on Push
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 jobs:
   sync:
