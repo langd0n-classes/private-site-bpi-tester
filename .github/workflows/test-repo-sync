@@ -1,4 +1,4 @@
-ame: Sync Repository Files on Push
+name: Workflow Dispatch: Sync Repository Files on Push
 
 on:
   workflow_dispatch:
