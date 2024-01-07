@@ -1,4 +1,3 @@
 langd0n-classes/public-site-bpi-tester"
   - source: *
-    exclude: |
-      .github/
+    exclude: .github/
