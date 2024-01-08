@@ -13,12 +13,15 @@ jobs:
       # Step 1: Checkout the source repository
       - name: Checkout Private Repo
         uses: actions/checkout@main
+        with:
+          path: repo1
+        
 
       # Step 2: Copy the code to a temporary location
-      - name: Copy the code to a temporary location
-        run: |
-          mkdir -p /tmp/local_repo
-          cp -r * /tmp/local_repo/
+#      - name: Copy the code to a temporary location
+#        run: |
+#          mkdir -p /tmp/local_repo
+#          cp -r * /tmp/local_repo/
 
       # Step 3: Clone the destination repository
       - name: Clone the destination repository
@@ -30,8 +33,10 @@ jobs:
 
       # Step 4: Overwrite the common folder in Repo 2
       - name: Overwrite Form Builder and Common Folders in Repo 2
+#        run: |
+#          rsync -av --delete --exclude ".git" /tmp/local-repo/* repo2/
         run: |
-          rsync -av --delete --exclude ".git" /tmp/local-repo/* repo2/
+          rsync -av --delete --exclude ".git" repo1/* repo2/
 
       # Step 5: Commit and push changes to Repo 2
       - name: Commit and Push Changes to Repo 2
