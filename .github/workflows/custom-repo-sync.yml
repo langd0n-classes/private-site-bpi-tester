@@ -25,11 +25,12 @@ jobs:
 
       # Step 3: Clone the destination repository
       - name: Clone the destination repository
-        uses: actions/checkout@main
+        uses: actions/checkout
         with:
           repository: angd0n-classes/public-site-bpi-tester
           token: ${{ secrets.GH_PAT }}
           path: repo2
+          ref: main
 
       # Step 4: Overwrite the common folder in Repo 2
       - name: Overwrite Form Builder and Common Folders in Repo 2
